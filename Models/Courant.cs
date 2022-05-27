@@ -8,12 +8,12 @@ namespace Models
 {
     public class Courant
     {
-        private string? _numero;
+        private string _numero;
         private double _solde;
         private double _ligneDeCredit;
-        private Personne? _titulaire;
+        private Personne _titulaire;
 
-        public string? Numero
+        public string Numero
         {
             get
             {
@@ -58,7 +58,7 @@ namespace Models
             }
         }
 
-        public Personne? Titulaire
+        public Personne Titulaire
         {
             get
             {
@@ -84,7 +84,6 @@ namespace Models
 
         public void Retrait(double montant)
         {
-
             if (montant <= 0)
             {
                 //Todo : Déclencher une erreur (plus tard)
