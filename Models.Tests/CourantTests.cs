@@ -1,7 +1,7 @@
 namespace Models.Tests
 {
     [TestClass]
-    public class CourantTest
+    public class CourantTests
     {
         [TestMethod]
         public void TestInstaciation()
