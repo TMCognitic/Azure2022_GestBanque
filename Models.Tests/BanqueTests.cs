@@ -37,7 +37,7 @@ namespace Models.Tests
         }
 
         [TestMethod]
-        public void TestRemoveAccount()
+        public void TestRemoveAccount1()
         {
             Banque banque = new Banque()
             {
@@ -47,9 +47,27 @@ namespace Models.Tests
             Courant courant = new Courant() { Numero = "0001" };
 
             banque.Ajouter(courant);
-            banque.Supprimer(courant.Numero);
+            bool result = banque.Supprimer(courant.Numero);
 
             Assert.AreEqual(0, banque.Count);
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void TestRemoveAccount2()
+        {
+            Banque banque = new Banque()
+            {
+                Nom = "TFTIC Banking"
+            };
+
+            Courant courant = new Courant() { Numero = "0001" };
+
+            banque.Ajouter(courant);
+            bool result = banque.Supprimer("0002");
+
+            Assert.AreEqual(1, banque.Count);
+            Assert.IsFalse(result);
         }
 
         [TestMethod]
