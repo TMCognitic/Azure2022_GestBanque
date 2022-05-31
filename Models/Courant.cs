@@ -33,5 +33,10 @@ namespace Models
         {
             Retrait(montant, LigneDeCredit);
         }
+
+        protected override double CalculInteret()
+        {
+            return Solde * (Solde > 0 ? .03 : .0975);
+        }
     }
 }
