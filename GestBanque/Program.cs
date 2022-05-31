@@ -41,7 +41,7 @@ namespace GestBanque
             //courant.Retrait(-500);
             //Console.WriteLine(courant.Solde);
 
-            banque["0000001"].Retrait(400);
+            banque["0000001"].Retrait(400);            
             Console.WriteLine($"Solde du compte '{banque["0000001"].Numero}' : {banque["0000001"].Solde}");
 
 

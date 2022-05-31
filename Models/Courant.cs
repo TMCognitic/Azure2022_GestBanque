@@ -6,44 +6,9 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class Courant
+    public class Courant : Compte
     {
-        //double = double + Courant
-        public static double operator +(double d, Courant compte)
-        {
-            return (d < 0 ? 0 : d) + (compte.Solde < 0 ? 0 : compte.Solde); 
-        }
-
-        private string _numero;
-        private double _solde;
         private double _ligneDeCredit;
-        private Personne _titulaire;
-
-        public string Numero
-        {
-            get
-            {
-                return _numero;
-            }
-
-            set
-            {
-                _numero = value;
-            }
-        }
-
-        public double Solde
-        {
-            get
-            {
-                return _solde;
-            }
-
-            private set
-            {
-                _solde = value;
-            }
-        }
 
         public double LigneDeCredit
         {
@@ -64,45 +29,9 @@ namespace Models
             }
         }
 
-        public Personne Titulaire
+        public override void Retrait(double montant)
         {
-            get
-            {
-                return _titulaire;
-            }
-
-            set
-            {
-                _titulaire = value;
-            }
-        }
-
-        public void Depot(double montant)
-        {
-            if (montant <= 0)
-            {
-                //Todo : Déclencher une erreur (plus tard)
-                return;
-            }
-
-            _solde += montant;
-        }
-
-        public void Retrait(double montant)
-        {
-            if (montant <= 0)
-            {
-                //Todo : Déclencher une erreur (plus tard)
-                return;
-            }
-
-            if(Solde - montant < -LigneDeCredit)
-            {
-                //Todo : Déclencher une erreur (plus tard)
-                return;
-            }
-
-            _solde -= montant;            
+            Retrait(montant, LigneDeCredit);
         }
     }
 }
