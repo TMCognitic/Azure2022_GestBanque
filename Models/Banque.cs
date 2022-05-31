@@ -30,5 +30,18 @@ namespace Models
         {
             return _comptes.Remove(numero);
         }
+
+        public double AvoirDesComptes(Personne personne)
+        {
+            double total = 0D;
+
+            foreach (Courant item in _comptes.Values)
+            {
+                if (item.Titulaire == personne)
+                    total += item; //double = double + Courant 
+            }
+
+            return total;
+        }
     }
 }
