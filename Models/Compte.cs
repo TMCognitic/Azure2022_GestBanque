@@ -1,6 +1,6 @@
 ﻿namespace Models
 {
-    public abstract class Compte
+    public abstract class Compte : ICustomer, IBanker
     {
         //double = double + Courant
         public static double operator +(double d, Compte compte)
