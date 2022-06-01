@@ -78,7 +78,7 @@ namespace Models.Tests
                 Nom = "TFTIC Banking"
             };
 
-            Courant courant = new Courant() { Numero = "0001" };
+            Compte courant = new Courant() { Numero = "0001" };
             banque.Ajouter(courant);
 
             courant = banque["0001"];
