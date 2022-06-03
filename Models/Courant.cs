@@ -21,8 +21,7 @@ namespace Models
             {
                 if (value < 0)
                 {
-                    //Todo : Déclencher une erreur (plus tard)
-                    return;
+                    throw new InvalidOperationException();
                 }
 
                 _ligneDeCredit = value;

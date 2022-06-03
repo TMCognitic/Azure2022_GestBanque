@@ -32,6 +32,15 @@ namespace GestBanque
             banque["0000002"].Depot(1000);
             Console.WriteLine($"Solde du compte '{banque["0000002"].Numero}' : {banque["0000002"].Solde}");
 
+            try
+            {
+                banque["0000002"].Retrait(2000);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             banque["0000001"].AppliquerInteret();
             banque["0000002"].AppliquerInteret();
 

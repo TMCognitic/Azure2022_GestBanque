@@ -68,8 +68,7 @@
         {
             if (montant <= 0)
             {
-                //Todo : Déclencher une erreur (plus tard)
-                return;
+                throw new ArgumentOutOfRangeException();
             }
 
             _solde += montant;
@@ -86,14 +85,12 @@
         {
             if (montant <= 0)
             {
-                //Todo : Déclencher une erreur (plus tard)
-                return;
+                throw new ArgumentOutOfRangeException();
             }
 
             if (Solde - montant < -ligneDeCredit)
             {
-                //Todo : Déclencher une erreur (plus tard)
-                return;
+                throw new SoldeInsuffisantException();
             }
 
             _solde -= montant;

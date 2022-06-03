@@ -14,23 +14,21 @@ namespace Models.Tests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
         public void TestLigneDeCredit()
         {
             Personne personne = new Personne("Doe", "John", new DateTime(1970, 1, 1));
             Courant courant = new Courant("001", -500, personne);
-
-            Assert.AreEqual(0D, courant.LigneDeCredit);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestDepot1()
         {
             Personne personne = new Personne("Doe", "John", new DateTime(1970, 1, 1));
             Courant courant = new Courant("001", 500, personne);
 
             courant.Depot(-500);
-
-            Assert.AreEqual(0D, courant.Solde);
         }
 
         [TestMethod]
@@ -45,6 +43,7 @@ namespace Models.Tests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestRetrait1()
         {
             //Assignation
@@ -53,12 +52,10 @@ namespace Models.Tests
 
             //Acte
             courant.Retrait(-500);
-
-            //Asserts
-            Assert.AreEqual(0D, courant.Solde);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(SoldeInsuffisantException))]
         public void TestRetrait2()
         {
             //Assignation
@@ -68,9 +65,6 @@ namespace Models.Tests
 
             //Acte
             courant.Retrait(500);
-
-            //Asserts
-            Assert.AreEqual(0D, courant.Solde);
         }
 
         [TestMethod]
