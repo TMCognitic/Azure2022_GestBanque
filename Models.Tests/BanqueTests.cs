@@ -12,24 +12,16 @@ namespace Models.Tests
         [TestMethod]
         public void TestInstaciation()
         {
-            Banque banque = new Banque()
-            {
-                Nom = "TFTIC Banking"
-            };
-
-
+            Banque banque = new Banque("TFTIC Banking");
             Assert.IsNotNull(banque);            
         }
 
         [TestMethod]
         public void TestAddAccount()
         {
-            Banque banque = new Banque()
-            {
-                Nom = "TFTIC Banking"
-            };
-
-            Courant courant = new Courant() { Numero = "0001" };
+            Banque banque = new Banque("TFTIC Banking");
+            Personne personne = new Personne("Doe", "John", new DateTime(1970, 1, 1));
+            Courant courant = new Courant("0001", personne);
 
             banque.Ajouter(courant);
 
@@ -39,12 +31,9 @@ namespace Models.Tests
         [TestMethod]
         public void TestRemoveAccount1()
         {
-            Banque banque = new Banque()
-            {
-                Nom = "TFTIC Banking"
-            };
-
-            Courant courant = new Courant() { Numero = "0001" };
+            Banque banque = new Banque("TFTIC Banking");
+            Personne personne = new Personne("Doe", "John", new DateTime(1970, 1, 1));
+            Courant courant = new Courant("0001", personne);
 
             banque.Ajouter(courant);
             bool result = banque.Supprimer(courant.Numero);
@@ -56,12 +45,9 @@ namespace Models.Tests
         [TestMethod]
         public void TestRemoveAccount2()
         {
-            Banque banque = new Banque()
-            {
-                Nom = "TFTIC Banking"
-            };
-
-            Courant courant = new Courant() { Numero = "0001" };
+            Banque banque = new Banque("TFTIC Banking");
+            Personne personne = new Personne("Doe", "John", new DateTime(1970, 1, 1));
+            Courant courant = new Courant("0001", personne);
 
             banque.Ajouter(courant);
             bool result = banque.Supprimer("0002");
@@ -73,12 +59,9 @@ namespace Models.Tests
         [TestMethod]
         public void TestIndexer()
         {
-            Banque banque = new Banque()
-            {
-                Nom = "TFTIC Banking"
-            };
-
-            Compte courant = new Courant() { Numero = "0001" };
+            Banque banque = new Banque("TFTIC Banking");
+            Personne personne = new Personne("Doe", "John", new DateTime(1970, 1, 1));
+            Compte courant = new Courant("0001", personne);
             banque.Ajouter(courant);
 
             courant = banque["0001"];

@@ -9,7 +9,7 @@ namespace Models
     public class Banque
     {
         private Dictionary<string, Compte> _comptes = new Dictionary<string, Compte>();
-        public string Nom { get; set; }
+        public string Nom { get; private set; }        
 
         public Compte this[string numero]
         {
@@ -19,6 +19,11 @@ namespace Models
         public int Count
         {
             get { return _comptes.Count; }
+        }
+
+        public Banque(string nom)
+        {
+            Nom = nom;
         }
 
         public void Ajouter(Compte compte)

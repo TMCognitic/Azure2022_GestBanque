@@ -6,19 +6,9 @@ namespace Models.Tests
         [TestMethod]
         public void TestInstaciation()
         {
-            Personne personne = new Personne()
-            {
-                Nom = "Doe",
-                Prenom = "John",
-                DateNaiss = new DateTime(1970, 1, 1)
-            };
+            Personne personne = new Personne("Doe", "John", new DateTime(1970, 1, 1));
 
-            Courant courant = new Courant()
-            {
-                Numero = "001",
-                LigneDeCredit = 500,
-                Titulaire = personne
-            };
+            Courant courant = new Courant("001", 500, personne);
 
             Assert.IsNotNull(courant);
         }
@@ -26,12 +16,8 @@ namespace Models.Tests
         [TestMethod]
         public void TestLigneDeCredit()
         {
-            Courant courant = new Courant()
-            {
-                Numero = "001",
-                LigneDeCredit = -500,
-                Titulaire = null
-            };
+            Personne personne = new Personne("Doe", "John", new DateTime(1970, 1, 1));
+            Courant courant = new Courant("001", -500, personne);
 
             Assert.AreEqual(0D, courant.LigneDeCredit);
         }
@@ -39,12 +25,8 @@ namespace Models.Tests
         [TestMethod]
         public void TestDepot1()
         {
-            Courant courant = new Courant()
-            {
-                Numero = "001",
-                LigneDeCredit = -500,
-                Titulaire = null
-            };
+            Personne personne = new Personne("Doe", "John", new DateTime(1970, 1, 1));
+            Courant courant = new Courant("001", 500, personne);
 
             courant.Depot(-500);
 
@@ -54,12 +36,8 @@ namespace Models.Tests
         [TestMethod]
         public void TestDepot2()
         {
-            Courant courant = new Courant()
-            {
-                Numero = "001",
-                LigneDeCredit = -500,
-                Titulaire = null
-            };
+            Personne personne = new Personne("Doe", "John", new DateTime(1970, 1, 1));
+            Courant courant = new Courant("001", 500, personne);
 
             courant.Depot(500);
 
@@ -70,12 +48,8 @@ namespace Models.Tests
         public void TestRetrait1()
         {
             //Assignation
-            Courant courant = new Courant()
-            {
-                Numero = "001",
-                LigneDeCredit = 0,
-                Titulaire = null
-            };
+            Personne personne = new Personne("Doe", "John", new DateTime(1970, 1, 1));
+            Courant courant = new Courant("001", 0, personne);
 
             //Acte
             courant.Retrait(-500);
@@ -86,13 +60,11 @@ namespace Models.Tests
 
         [TestMethod]
         public void TestRetrait2()
-        {//Assignation
-            Courant courant = new Courant()
-            {
-                Numero = "001",
-                LigneDeCredit = 0,
-                Titulaire = null
-            };
+        {
+            //Assignation
+            Personne personne = new Personne("Doe", "John", new DateTime(1970, 1, 1));
+            Courant courant = new Courant("001", 0, personne);
+
 
             //Acte
             courant.Retrait(500);
@@ -105,12 +77,8 @@ namespace Models.Tests
         public void TestRetrait3()
         {
             //Assignation
-            Courant courant = new Courant()
-            {
-                Numero = "001",
-                LigneDeCredit = 1000,
-                Titulaire = null
-            };
+            Personne personne = new Personne("Doe", "John", new DateTime(1970, 1, 1));
+            Courant courant = new Courant("001", 1000, personne);
 
             //Acte
             courant.Retrait(500);

@@ -13,12 +13,7 @@ namespace Models.Tests
         public void TestInstanciation()
         {
             //Affectation
-            Personne personne = new Personne()
-            {
-                Nom = "Doe",
-                Prenom = "John",
-                DateNaiss = new DateTime(1970, 1, 1)
-            };
+            Personne personne = new Personne("Doe", "John",new DateTime(1970, 1, 1));
 
             //Acte
 

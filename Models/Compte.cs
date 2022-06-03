@@ -12,6 +12,17 @@
         private double _solde;
         private Personne _titulaire;
 
+        protected Compte(string numero, Personne titulaire)
+        {
+            Numero = numero;
+            Titulaire = titulaire;
+        }
+
+        protected Compte(string numero, Personne titulaire, double solde) : this(numero, titulaire)
+        {
+            Solde = solde;
+        }
+
         public string Numero
         {
             get
@@ -19,9 +30,22 @@
                 return _numero;
             }
 
-            set
+            private set
             {
                 _numero = value;
+            }
+        }
+
+        public Personne Titulaire
+        {
+            get
+            {
+                return _titulaire;
+            }
+
+            private set
+            {
+                _titulaire = value;
             }
         }
 
@@ -38,18 +62,7 @@
             }
         }
 
-        public Personne Titulaire
-        {
-            get
-            {
-                return _titulaire;
-            }
-
-            set
-            {
-                _titulaire = value;
-            }
-        }
+        
 
         public void Depot(double montant)
         {
