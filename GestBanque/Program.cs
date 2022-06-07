@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.Others.Delegates;
 
 namespace GestBanque
 {
@@ -45,6 +46,10 @@ namespace GestBanque
             banque["0000002"].AppliquerInteret();
 
             Console.WriteLine($"Avoir des comptes de {doeJohn.Nom} {doeJohn.Prenom} : {banque.AvoirDesComptes(doeJohn)}");
+
+            Carwash carwash = new Carwash();
+            carwash.Traiter(new Voiture("1-ABC-123"));
+            carwash.Traiter(new Voiture("1-DEF-456"));
         }
     }
 }
