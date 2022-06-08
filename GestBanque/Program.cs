@@ -1,5 +1,6 @@
 ﻿using Models;
 using Models.Others.Delegates;
+using System.ComponentModel;
 
 namespace GestBanque
 {
@@ -27,8 +28,8 @@ namespace GestBanque
             banque["0000001"].Retrait(400);            
             Console.WriteLine($"Solde du compte '{banque["0000001"].Numero}' : {banque["0000001"].Solde}");
 
-            //banque["0000001"].Retrait(200);
-            //Console.WriteLine($"Solde du compte '{banque["0000001"].Numero}' : {banque["0000001"].Solde}");
+            banque["0000001"].Retrait(200);
+            Console.WriteLine($"Solde du compte '{banque["0000001"].Numero}' : {banque["0000001"].Solde}");
 
             banque["0000002"].Depot(1000);
             Console.WriteLine($"Solde du compte '{banque["0000002"].Numero}' : {banque["0000002"].Solde}");
